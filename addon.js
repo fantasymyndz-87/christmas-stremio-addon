@@ -250,10 +250,10 @@ const holidayEpisodes = holidayShows
 
 const builder = new addonBuilder({
     id: 'org.christmas.catalog',
-    version: '2.8.0',
+    version: '2.8.1',
     name: 'Christmas Movies & Specials',
     description: 'Christmas Movies, Classic Specials, and Holiday Episodes',
-    logo: 'https://i.imgur.com/8Km9tLL.png',
+    logo: 'https://christmas-addon.pplx.app/santa-hat.png',
     resources: ['catalog', 'meta'],
     types: ['movie'],
     catalogs: [
