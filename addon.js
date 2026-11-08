@@ -14,7 +14,11 @@ const holidayShows = [
             { id: 'tt0789632', name: "'Tis the Fifteenth Season", year: 2003 },
             { id: 'tt0782576', name: 'Simpsons Christmas Stories', year: 2005 },
             { id: 'tt1628667', name: 'The Fight Before Christmas', year: 2010 },
-            { id: 'tt2107521', name: 'Holidays of Future Passed', year: 2011 }
+            { id: 'tt2107521', name: 'Holidays of Future Passed', year: 2011 },
+            { id: 'tt0762498', name: "Skinner's Sense of Snow", year: 2000 },
+            { id: 'tt2930952', name: 'White Christmas Blues', year: 2013 },
+            { id: 'tt4130168', name: "I Won't Be Home for Christmas", year: 2014 },
+            { id: 'tt8730968', name: "'Tis the 30th Season", year: 2018 }
         ]
     },
     {
@@ -33,7 +37,9 @@ const holidayShows = [
             { id: 'tt0705892', name: 'A Very Crappy Christmas', year: 2000 },
             { id: 'tt0766085', name: 'Red Sleigh Down', year: 2002 },
             { id: 'tt0705984', name: 'Woodland Critter Christmas', year: 2004 },
-            { id: 'tt3959654', name: '#HappyHolograms', year: 2014 }
+            { id: 'tt3959654', name: '#HappyHolograms', year: 2014 },
+            { id: 'tt0705936', name: "It's Christmas in Canada", year: 2003 },
+            { id: 'tt6647832', name: 'Christmas Snow', year: 2019 }
         ]
     },
     {
@@ -42,7 +48,8 @@ const holidayShows = [
             { id: 'tt0583630', name: 'The One with the Monkey', year: 1994 },
             { id: 'tt0583652', name: 'The One with All the Thanksgivings', year: 1998 },
             { id: 'tt0583613', name: 'The One with the Holiday Armadillo', year: 2000 },
-            { id: 'tt0583518', name: 'The One with Christmas in Tulsa', year: 2002 }
+            { id: 'tt0583518', name: 'The One with Christmas in Tulsa', year: 2002 },
+            { id: 'tt0583594', name: "The One with Ross's Step Forward", year: 2001 }
         ]
     },
     {
@@ -52,7 +59,9 @@ const holidayShows = [
             { id: 'tt0908674', name: 'A Benihana Christmas', year: 2006 },
             { id: 'tt1548747', name: 'Secret Santa', year: 2009 },
             { id: 'tt1752584', name: 'Classy Christmas', year: 2010 },
-            { id: 'tt2514850', name: 'Dwight Christmas', year: 2012 }
+            { id: 'tt2514850', name: 'Dwight Christmas', year: 2012 },
+            { id: 'tt1248733', name: 'Moroccan Christmas', year: 2008 },
+            { id: 'tt2113519', name: 'Christmas Wishes', year: 2011 }
         ]
     },
     {
@@ -67,7 +76,8 @@ const holidayShows = [
         episodes: [
             { id: 'tt0904645', name: 'How Lily Stole Christmas', year: 2006 },
             { id: 'tt1256172', name: 'Little Minnesota', year: 2008 },
-            { id: 'tt2121966', name: 'Symphony of Illumination', year: 2011 }
+            { id: 'tt2121966', name: 'Symphony of Illumination', year: 2011 },
+            { id: 'tt1256174', name: 'Three Days of Snow', year: 2009 }
         ]
     },
     {
@@ -75,7 +85,9 @@ const holidayShows = [
         episodes: [
             { id: 'tt1536241', name: 'Undeck the Halls', year: 2009 },
             { id: 'tt2096098', name: 'Express Christmas', year: 2011 },
-            { id: 'tt3335562', name: 'The Old Man & the Tree', year: 2013 }
+            { id: 'tt3335562', name: 'The Old Man & the Tree', year: 2013 },
+            { id: 'tt5209922', name: 'White Christmas', year: 2015 },
+            { id: 'tt11248100', name: 'The Last Christmas', year: 2019 }
         ]
     },
     {
@@ -100,26 +112,31 @@ const holidayShows = [
             { id: 'tt0576913', name: "A Very Special Family Guy Freakin' Christmas", year: 2001 },
             { id: 'tt1710689', name: 'Road to the North Pole', year: 2010 },
             { id: 'tt2443942', name: 'Jesus, Mary and Joseph!', year: 2012 },
-            { id: 'tt6019446', name: 'How the Griffin Stole Christmas', year: 2016 }
+            { id: 'tt6019446', name: 'How the Griffin Stole Christmas', year: 2016 },
+            { id: 'tt3358430', name: 'Christmas Guy', year: 2013 }
         ]
     },
     {
         show: 'American Dad!',
         episodes: [
-            { id: 'tt1555452', name: "Rapture's Delight", year: 2009 }
+            { id: 'tt1555452', name: "Rapture's Delight", year: 2009 },
+            { id: 'tt0920930', name: 'The Best Christmas Story Never Told', year: 2006 },
+            { id: 'tt2543690', name: 'Minstrel Krampus', year: 2013 }
         ]
     },
     {
         show: 'King of the Hill',
         episodes: [
-            { id: 'tt0620291', name: 'Pretty, Pretty Dresses', year: 1998 }
+            { id: 'tt0620291', name: 'Pretty, Pretty Dresses', year: 1998 },
+            { id: 'tt0620188', name: "'Twas the Nut Before Christmas", year: 2000 }
         ]
     },
     {
         show: "Bob's Burgers",
         episodes: [
-            { id: 'tt2531554', name: 'Bob Rest Ye Merry Gentle-Mannequins', year: 2012 },
-            { id: 'tt7635808', name: 'The Bleakening', year: 2017 }
+            { id: 'tt2531554', name: 'God Rest Ye Merry Gentle-Mannequins', year: 2012 },
+            { id: 'tt7635808', name: 'The Bleakening', year: 2017 },
+            { id: 'tt3379840', name: 'Christmas in the Car', year: 2013 }
         ]
     },
     {
@@ -131,7 +148,10 @@ const holidayShows = [
     {
         show: '30 Rock',
         episodes: [
-            { id: 'tt1001594', name: 'Ludachristmas', year: 2007 }
+            { id: 'tt1001594', name: 'Ludachristmas', year: 2007 },
+            { id: 'tt1248348', name: 'Christmas Special', year: 2008 },
+            { id: 'tt1540153', name: 'Secret Santa', year: 2009 },
+            { id: 'tt1635807', name: 'Christmas Attack Zone', year: 2010 }
         ]
     },
     {
@@ -144,7 +164,9 @@ const holidayShows = [
     {
         show: 'M*A*S*H',
         episodes: [
-            { id: 'tt0638290', name: 'Dear Sis', year: 1978 }
+            { id: 'tt0638290', name: 'Dear Sis', year: 1978 },
+            { id: 'tt0638292', name: 'Death Takes a Holiday', year: 1980 },
+            { id: 'tt0638236', name: "'Twas the Day After Christmas", year: 1981 }
         ]
     },
     {
@@ -163,7 +185,11 @@ const holidayShows = [
         show: 'Frasier',
         episodes: [
             { id: 'tt0582453', name: 'Miracle on Third or Fourth Street', year: 1993 },
-            { id: 'tt0582452', name: 'Merry Christmas, Mrs. Moskowitz', year: 1998 }
+            { id: 'tt0582452', name: 'Merry Christmas, Mrs. Moskowitz', year: 1998 },
+            { id: 'tt0582473', name: 'Perspectives on Christmas', year: 1997 },
+            { id: 'tt0582526', name: 'The Fight Before Christmas', year: 1999 },
+            { id: 'tt0582450', name: 'Mary Christmas', year: 2000 },
+            { id: 'tt0582425', name: 'High Holidays', year: 2003 }
         ]
     },
     {
@@ -175,7 +201,14 @@ const holidayShows = [
     {
         show: 'Doctor Who',
         episodes: [
-            { id: 'tt1672218', name: 'A Christmas Carol', year: 2010 }
+            { id: 'tt1672218', name: 'A Christmas Carol', year: 2010 },
+            { id: 'tt0562994', name: 'The Christmas Invasion', year: 2005 },
+            { id: 'tt1061123', name: 'Voyage of the Damned', year: 2007 },
+            { id: 'tt2380513', name: 'The Snowmen', year: 2012 },
+            { id: 'tt2986512', name: 'The Time of the Doctor', year: 2013 },
+            { id: 'tt4050552', name: 'Last Christmas', year: 2014 },
+            { id: 'tt6968542', name: 'Twice Upon a Time', year: 2017 },
+            { id: 'tt28289422', name: 'The Church on Ruby Road', year: 2023 }
         ]
     },
     {
@@ -187,7 +220,10 @@ const holidayShows = [
     {
         show: 'New Girl',
         episodes: [
-            { id: 'tt2125218', name: 'The 23rd', year: 2011 }
+            { id: 'tt2125218', name: 'The 23rd', year: 2011 },
+            { id: 'tt2544546', name: 'Santa', year: 2012 },
+            { id: 'tt4232492', name: 'LAXmas', year: 2014 },
+            { id: 'tt6212520', name: 'Christmas Eve Eve', year: 2016 }
         ]
     },
     {
@@ -205,7 +241,8 @@ const holidayShows = [
     {
         show: 'SpongeBob SquarePants',
         episodes: [
-            { id: 'tt0707305', name: 'Christmas Who?', year: 2000 }
+            { id: 'tt0707305', name: 'Christmas Who?', year: 2000 },
+            { id: 'tt14514044', name: "SpongeBob's Road to Christmas", year: 2021 }
         ]
     },
     {
@@ -225,14 +262,16 @@ const holidayShows = [
     {
         show: 'The X-Files',
         episodes: [
-            { id: 'tt0751138', name: 'How the Ghosts Stole Christmas', year: 1998 }
+            { id: 'tt0751138', name: 'How the Ghosts Stole Christmas', year: 1998 },
+            { id: 'tt0751090', name: 'Christmas Carol', year: 1997 }
         ]
     },
     {
         show: 'Married... with Children',
         episodes: [
             { id: 'tt0642303', name: "It's a Bundyful Life (Part 1)", year: 1989 },
-            { id: 'tt0642304', name: "It's a Bundyful Life (Part 2)", year: 1989 }
+            { id: 'tt0642304', name: "It's a Bundyful Life (Part 2)", year: 1989 },
+            { id: 'tt0642248', name: 'Christmas', year: 1992 }
         ]
     }
 ];
@@ -250,7 +289,7 @@ const holidayEpisodes = holidayShows
 
 const builder = new addonBuilder({
     id: 'org.christmas.catalog',
-    version: '2.9.0',
+    version: '2.10.0',
     name: 'Christmas Movies & Specials',
     description: 'Christmas Movies, Classic Specials, and Holiday Episodes',
     logo: 'https://christmas-addon.pplx.app/santa-hat.png',
@@ -288,10 +327,13 @@ const builder = new addonBuilder({
 
 // ====================== CHRISTMAS MOVIES ======================
 const christmasMovies = [
+    { id: 'tt0026972', name: "Scrooge (1935)", year: 1935 },
     { id: 'tt0029992', name: "A Christmas Carol (1938)", year: 1938 },
     { id: 'tt0032247', name: "Beyond Christmas (Beyond Tomorrow)", year: 1940 },
+    { id: 'tt0032981', name: "Remember the Night", year: 1940 },
     { id: 'tt0033045', name: "The Shop Around the Corner", year: 1940 },
     { id: 'tt0034862', name: "Holiday Inn", year: 1942 },
+    { id: 'tt0033874', name: "The Man Who Came to Dinner", year: 1942 },
     { id: 'tt0037059', name: "Meet Me in St. Louis", year: 1944 },
     { id: 'tt0037595', name: "Christmas in Connecticut", year: 1945 },
     { id: 'tt0038650', name: "It's a Wonderful Life", year: 1946 },
@@ -299,8 +341,11 @@ const christmasMovies = [
     { id: 'tt0039628', name: "Miracle on 34th Street", year: 1947 },
     { id: 'tt0039190', name: "The Bishop's Wife", year: 1947 },
     { id: 'tt0041257', name: "Come to the Stable", year: 1949 },
+    { id: 'tt0041473', name: "Holiday Affair", year: 1949 },
     { id: 'tt0044008', name: "Scrooge (1951)", year: 1951 },
+    { id: 'tt0043733', name: "The Lemon Drop Kid", year: 1951 },
     { id: 'tt0047673', name: "White Christmas", year: 1954 },
+    { id: 'tt0048801', name: "We're No Angels", year: 1955 },
     { id: 'tt0066344', name: "Scrooge (1970)", year: 1970 },
     { id: 'tt0067209', name: "The Homecoming: A Christmas Story", year: 1971 },
     { id: 'tt0068720', name: "The House Without a Christmas Tree", year: 1972 },
@@ -330,7 +375,7 @@ const christmasMovies = [
     { id: 'tt0110955', name: "The Ref", year: 1994 },
     { id: 'tt0111070', name: "The Santa Clause", year: 1994 },
     { id: 'tt0111477', name: "Trapped in Paradise", year: 1994 },
-    { id: 'tt0112697', name: "While You Were Sleeping", year: 1995 },
+    { id: 'tt0114924', name: "While You Were Sleeping", year: 1995 },
     { id: 'tt0116705', name: "Jingle All the Way", year: 1996 },
     { id: 'tt0116908', name: "The Long Kiss Goodnight", year: 1996 },
     { id: 'tt0117372', name: "The Preacher's Wife", year: 1996 },
@@ -396,6 +441,7 @@ const christmasMovies = [
     { id: 'tt7736496', name: "Jingle Jangle: A Christmas Journey", year: 2020 },
     { id: 'tt11057644', name: "The Christmas Chronicles: Part Two", year: 2020 },
     { id: 'tt11199410', name: "The Princess Switch: Switched Again", year: 2020 },
+    { id: 'tt10310140', name: "Fatman", year: 2020 },
     { id: 'tt11540284', name: "8-Bit Christmas", year: 2021 },
     { id: 'tt10187208', name: "A Boy Called Christmas", year: 2021 },
     { id: 'tt13070602', name: "A Castle for Christmas", year: 2021 },
@@ -422,6 +468,8 @@ const christmasMovies = [
     { id: 'tt31022050', name: "Our Little Secret", year: 2024 },
     { id: 'tt14948432', name: "Red One", year: 2024 },
     { id: 'tt2347285', name: "The Best Christmas Pageant Ever", year: 2024 },
+    { id: 'tt32368345', name: "The Merry Gentlemen", year: 2024 },
+    { id: 'tt14855468', name: "That Christmas", year: 2024 },
     { id: 'tt34992378', name: "A Merry Little Ex-Mas", year: 2025 },
     { id: 'tt31998881', name: "Oh. What. Fun.", year: 2025 },
     { id: 'tt34276058', name: "The Family Plan 2", year: 2025 },
@@ -449,6 +497,7 @@ const christmasSpecials = [
     { id: 'tt0182015', name: "A Cosmic Christmas", year: 1977 },
     { id: 'tt0075988', name: "Emmet Otter's Jug-Band Christmas", year: 1977 },
     { id: 'tt0076448', name: "Nestor, the Long-Eared Christmas Donkey", year: 1977 },
+    { id: 'tt0193163', name: "A Flintstone Christmas", year: 1977 },
     { id: 'tt0331217', name: "Christmas Eve on Sesame Street", year: 1978 },
     { id: 'tt0078281', name: "The Small One", year: 1978 },
     { id: 'tt0227562', name: "The Stingiest Man in Town", year: 1978 },
@@ -473,15 +522,18 @@ const christmasSpecials = [
     { id: 'tt0106973', name: "Frosty Returns", year: 1992 },
     { id: 'tt0104534', name: "It's Christmastime Again, Charlie Brown", year: 1992 },
     { id: 'tt0356140', name: "The Town Santa Forgot", year: 1993 },
+    { id: 'tt0116189', name: "Elmo Saves Christmas", year: 1996 },
     { id: 'tt0133372', name: "Annabelle's Wish", year: 1997 },
     { id: 'tt0118692', name: "Beauty and the Beast: The Enchanted Christmas", year: 1997 },
-    { id: 'tt0219086', name: "Robbie the Reindeer: Hooves of Fire", year: 1998 },
+    { id: 'tt0219086', name: "Robbie the Reindeer: Hooves of Fire", year: 1999 },
     { id: 'tt0238414', name: "Mickey's Once Upon a Christmas", year: 1999 },
     { id: 'tt0227173', name: "Olive, the Other Reindeer", year: 1999 },
     { id: 'tt0268948', name: "Arthur's Perfect Christmas", year: 2000 },
+    { id: 'tt0267536', name: "Grandma Got Run Over by a Reindeer", year: 2000 },
     { id: 'tt0300195', name: "Mickey's Magical Christmas: Snowed in at the House of Mouse", year: 2001 },
     { id: 'tt0293913', name: "Rudolph the Red-Nosed Reindeer and the Island of Misfit Toys", year: 2001 },
     { id: 'tt0358103', name: "Santa, Baby!", year: 2001 },
+    { id: 'tt0387301', name: "I Want a Dog for Christmas, Charlie Brown", year: 2003 },
     { id: 'tt0347394', name: "Robbie the Reindeer: Legend of the Lost Tribe", year: 2002 },
     { id: 'tt0424279', name: "Mickey's Twice Upon a Christmas", year: 2004 },
     { id: 'tt0488147', name: "The Legend of Frosty the Snowman", year: 2005 },
@@ -490,10 +542,12 @@ const christmasSpecials = [
     { id: 'tt1292569', name: "A Muppets Christmas: Letters to Santa", year: 2008 },
     { id: 'tt1474311', name: "Prep & Landing", year: 2009 },
     { id: 'tt2100546', name: "Ice Age: A Mammoth Christmas", year: 2011 },
+    { id: 'tt2069885', name: "Prep & Landing: Naughty vs. Nice", year: 2011 },
     { id: 'tt2560206', name: "The Snowman and the Snowdog", year: 2012 },
     { id: 'tt3473654', name: "Toy Story That Time Forgot", year: 2014 },
     { id: 'tt4537842', name: "A Very Murray Christmas", year: 2015 },
     { id: 'tt5452780', name: "Olaf's Frozen Adventure", year: 2017 },
+    { id: 'tt33427273', name: "A Nonsense Christmas with Sabrina Carpenter", year: 2024 },
 ];
 
 function toMetas(list) {
