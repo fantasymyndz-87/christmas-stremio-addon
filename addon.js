@@ -1,8 +1,256 @@
 const { addonBuilder, serveHTTP } = require('stremio-addon-sdk');
 
+// ====================== HOLIDAY EPISODES ======================
+// Organized by show; the catalog is sorted by show name, then by year.
+// All IMDb IDs verified against imdb.com
+const holidayShows = [
+    {
+        show: 'The Simpsons',
+        episodes: [
+            { id: 'tt0348034', name: 'Simpsons Roasting on an Open Fire', year: 1989 },
+            { id: 'tt0701168', name: 'Marge Be Not Proud', year: 1995 },
+            { id: 'tt0701176', name: 'Miracle on Evergreen Terrace', year: 1997 },
+            { id: 'tt0701101', name: 'Grift of the Magi', year: 1999 },
+            { id: 'tt0789632', name: "'Tis the Fifteenth Season", year: 2003 },
+            { id: 'tt0782576', name: 'Simpsons Christmas Stories', year: 2005 },
+            { id: 'tt1628667', name: 'The Fight Before Christmas', year: 2010 },
+            { id: 'tt2107521', name: 'Holidays of Future Passed', year: 2011 }
+        ]
+    },
+    {
+        show: 'Futurama',
+        episodes: [
+            { id: 'tt0584465', name: 'Xmas Story', year: 1999 },
+            { id: 'tt0584429', name: 'A Tale of Two Santas', year: 2001 }
+        ]
+    },
+    {
+        show: 'South Park',
+        episodes: [
+            { id: 'tt0705945', name: 'Mr. Hankey, the Christmas Poo', year: 1997 },
+            { id: 'tt0705942', name: 'Merry Christmas Charlie Manson!', year: 1998 },
+            { id: 'tt0705944', name: "Mr. Hankey's Christmas Classics", year: 1999 },
+            { id: 'tt0705892', name: 'A Very Crappy Christmas', year: 2000 },
+            { id: 'tt0766085', name: 'Red Sleigh Down', year: 2002 },
+            { id: 'tt0705984', name: 'Woodland Critter Christmas', year: 2004 },
+            { id: 'tt3959654', name: '#HappyHolograms', year: 2014 }
+        ]
+    },
+    {
+        show: 'Friends',
+        episodes: [
+            { id: 'tt0583630', name: 'The One with the Monkey', year: 1994 },
+            { id: 'tt0583652', name: 'The One with All the Thanksgivings', year: 1998 },
+            { id: 'tt0583613', name: 'The One with the Holiday Armadillo', year: 2000 },
+            { id: 'tt0583518', name: 'The One with Christmas in Tulsa', year: 2002 }
+        ]
+    },
+    {
+        show: 'The Office',
+        episodes: [
+            { id: 'tt0664513', name: 'Christmas Party', year: 2005 },
+            { id: 'tt0908674', name: 'A Benihana Christmas', year: 2006 },
+            { id: 'tt1548747', name: 'Secret Santa', year: 2009 },
+            { id: 'tt1752584', name: 'Classy Christmas', year: 2010 },
+            { id: 'tt2514850', name: 'Dwight Christmas', year: 2012 }
+        ]
+    },
+    {
+        show: 'Seinfeld',
+        episodes: [
+            { id: 'tt0697752', name: 'The Pick', year: 1992 },
+            { id: 'tt0697790', name: 'The Strike (Festivus)', year: 1997 }
+        ]
+    },
+    {
+        show: 'How I Met Your Mother',
+        episodes: [
+            { id: 'tt0904645', name: 'How Lily Stole Christmas', year: 2006 },
+            { id: 'tt1256172', name: 'Little Minnesota', year: 2008 },
+            { id: 'tt2121966', name: 'Symphony of Illumination', year: 2011 }
+        ]
+    },
+    {
+        show: 'Modern Family',
+        episodes: [
+            { id: 'tt1536241', name: 'Undeck the Halls', year: 2009 },
+            { id: 'tt2096098', name: 'Express Christmas', year: 2011 },
+            { id: 'tt3335562', name: 'The Old Man & the Tree', year: 2013 }
+        ]
+    },
+    {
+        show: 'Parks and Recreation',
+        episodes: [
+            { id: 'tt1545370', name: 'Christmas Scandal', year: 2009 },
+            { id: 'tt2113422', name: 'Citizen Knope', year: 2011 },
+            { id: 'tt2466936', name: 'Ron and Diane', year: 2012 }
+        ]
+    },
+    {
+        show: 'Community',
+        episodes: [
+            { id: 'tt1559103', name: 'Comparative Religion', year: 2009 },
+            { id: 'tt1640854', name: "Abed's Uncontrollable Christmas", year: 2010 },
+            { id: 'tt2105238', name: 'Regional Holiday Music', year: 2011 }
+        ]
+    },
+    {
+        show: 'Family Guy',
+        episodes: [
+            { id: 'tt0576913', name: "A Very Special Family Guy Freakin' Christmas", year: 2001 },
+            { id: 'tt1710689', name: 'Road to the North Pole', year: 2010 },
+            { id: 'tt2443942', name: 'Jesus, Mary and Joseph!', year: 2012 },
+            { id: 'tt6019446', name: 'How the Griffin Stole Christmas', year: 2016 }
+        ]
+    },
+    {
+        show: 'American Dad!',
+        episodes: [
+            { id: 'tt1555452', name: "Rapture's Delight", year: 2009 }
+        ]
+    },
+    {
+        show: 'King of the Hill',
+        episodes: [
+            { id: 'tt0620291', name: 'Pretty, Pretty Dresses', year: 1998 }
+        ]
+    },
+    {
+        show: "Bob's Burgers",
+        episodes: [
+            { id: 'tt2531554', name: 'Bob Rest Ye Merry Gentle-Mannequins', year: 2012 },
+            { id: 'tt7635808', name: 'The Bleakening', year: 2017 }
+        ]
+    },
+    {
+        show: "It's Always Sunny in Philadelphia",
+        episodes: [
+            { id: 'tt1478620', name: 'A Very Sunny Christmas', year: 2009 }
+        ]
+    },
+    {
+        show: '30 Rock',
+        episodes: [
+            { id: 'tt1001594', name: 'Ludachristmas', year: 2007 }
+        ]
+    },
+    {
+        show: 'The Office (UK)',
+        episodes: [
+            { id: 'tt0664502', name: 'Christmas Special: Part 1', year: 2003 },
+            { id: 'tt0664503', name: 'Christmas Special: Part 2', year: 2003 }
+        ]
+    },
+    {
+        show: 'M*A*S*H',
+        episodes: [
+            { id: 'tt0638290', name: 'Dear Sis', year: 1978 }
+        ]
+    },
+    {
+        show: 'The West Wing',
+        episodes: [
+            { id: 'tt0745635', name: 'In Excelsis Deo', year: 1999 }
+        ]
+    },
+    {
+        show: 'Buffy the Vampire Slayer',
+        episodes: [
+            { id: 'tt0533387', name: 'Amends', year: 1998 }
+        ]
+    },
+    {
+        show: 'Frasier',
+        episodes: [
+            { id: 'tt0582453', name: 'Miracle on Third or Fourth Street', year: 1993 },
+            { id: 'tt0582452', name: 'Merry Christmas, Mrs. Moskowitz', year: 1998 }
+        ]
+    },
+    {
+        show: 'Scrubs',
+        episodes: [
+            { id: 'tt0696619', name: 'My Own Personal Jesus', year: 2001 }
+        ]
+    },
+    {
+        show: 'Doctor Who',
+        episodes: [
+            { id: 'tt1672218', name: 'A Christmas Carol', year: 2010 }
+        ]
+    },
+    {
+        show: 'The O.C.',
+        episodes: [
+            { id: 'tt0663865', name: 'The Best Chrismukkah Ever', year: 2003 }
+        ]
+    },
+    {
+        show: 'New Girl',
+        episodes: [
+            { id: 'tt2125218', name: 'The 23rd', year: 2011 }
+        ]
+    },
+    {
+        show: 'Rugrats',
+        episodes: [
+            { id: 'tt1151694', name: 'The Santa Experience', year: 1992 }
+        ]
+    },
+    {
+        show: 'Hey Arnold!',
+        episodes: [
+            { id: 'tt0600738', name: "Arnold's Christmas", year: 1996 }
+        ]
+    },
+    {
+        show: 'SpongeBob SquarePants',
+        episodes: [
+            { id: 'tt0707305', name: 'Christmas Who?', year: 2000 }
+        ]
+    },
+    {
+        show: 'Brooklyn Nine-Nine',
+        episodes: [
+            { id: 'tt3277264', name: 'Christmas', year: 2013 },
+            { id: 'tt4371314', name: 'Yippie Kayak', year: 2015 }
+        ]
+    },
+    {
+        show: 'The Big Bang Theory',
+        episodes: [
+            { id: 'tt1256021', name: 'The Bath Item Gift Hypothesis', year: 2008 },
+            { id: 'tt2559784', name: 'The Santa Simulation', year: 2012 }
+        ]
+    },
+    {
+        show: 'The X-Files',
+        episodes: [
+            { id: 'tt0751138', name: 'How the Ghosts Stole Christmas', year: 1998 }
+        ]
+    },
+    {
+        show: 'Married... with Children',
+        episodes: [
+            { id: 'tt0642303', name: "It's a Bundyful Life (Part 1)", year: 1989 },
+            { id: 'tt0642304', name: "It's a Bundyful Life (Part 2)", year: 1989 }
+        ]
+    }
+];
+
+// Flat list: shows alphabetized, episodes within each show sorted by year
+const holidayEpisodes = holidayShows
+    .slice()
+    .sort((a, b) => a.show.localeCompare(b.show))
+    .map(s => s.episodes
+        .slice()
+        .sort((a, b) => a.year - b.year)
+        .map(e => ({ id: e.id, name: `${s.show} - ${e.name}`, year: e.year }))
+    )
+    .flat();
+
 const builder = new addonBuilder({
     id: 'org.christmas.catalog',
-    version: '2.7.0',
+    version: '2.8.0',
     name: 'Christmas Movies & Specials',
     description: 'Christmas Movies, Classic Specials, and Holiday Episodes',
     logo: 'https://i.imgur.com/8Km9tLL.png',
@@ -22,7 +270,14 @@ const builder = new addonBuilder({
         {
             type: 'movie',
             id: 'holiday-episodes',
-            name: 'Holiday Episodes'
+            name: 'Holiday Episodes',
+            extra: [
+                {
+                    name: 'genre',
+                    isRequired: false,
+                    options: holidayShows.map(s => s.show).sort((a, b) => a.localeCompare(b))
+                }
+            ]
         }
     ]
 });
@@ -207,141 +462,6 @@ const christmasSpecials = [
     { id: 'tt3473654', name: 'Toy Story That Time Forgot', year: 2014 }
 ];
 
-// ====================== HOLIDAY EPISODES ======================
-// All IMDb IDs verified against imdb.com
-const holidayEpisodes = [
-    // The Simpsons
-    { id: 'tt0348034', name: 'The Simpsons - Simpsons Roasting on an Open Fire', year: 1989 },
-    { id: 'tt0701168', name: 'The Simpsons - Marge Be Not Proud', year: 1995 },
-    { id: 'tt0701176', name: 'The Simpsons - Miracle on Evergreen Terrace', year: 1997 },
-    { id: 'tt0701101', name: 'The Simpsons - Grift of the Magi', year: 1999 },
-    { id: 'tt0789632', name: "The Simpsons - 'Tis the Fifteenth Season", year: 2003 },
-    { id: 'tt1628667', name: 'The Simpsons - The Fight Before Christmas', year: 2010 },
-    { id: 'tt0782576', name: 'The Simpsons - Simpsons Christmas Stories', year: 2005 },
-    { id: 'tt2107521', name: 'The Simpsons - Holidays of Future Passed', year: 2011 },
-
-    // Futurama
-    { id: 'tt0584465', name: 'Futurama - Xmas Story', year: 1999 },
-    { id: 'tt0584429', name: 'Futurama - A Tale of Two Santas', year: 2001 },
-
-    // South Park
-    { id: 'tt0705945', name: 'South Park - Mr. Hankey, the Christmas Poo', year: 1997 },
-    { id: 'tt0705942', name: 'South Park - Merry Christmas Charlie Manson!', year: 1998 },
-    { id: 'tt0705944', name: "South Park - Mr. Hankey's Christmas Classics", year: 1999 },
-    { id: 'tt0705892', name: 'South Park - A Very Crappy Christmas', year: 2000 },
-    { id: 'tt0766085', name: 'South Park - Red Sleigh Down', year: 2002 },
-    { id: 'tt0705984', name: 'South Park - Woodland Critter Christmas', year: 2004 },
-    { id: 'tt3959654', name: 'South Park - #HappyHolograms', year: 2014 },
-
-    // Friends
-    { id: 'tt0583630', name: 'Friends - The One with the Monkey', year: 1994 },
-    { id: 'tt0583652', name: 'Friends - The One with All the Thanksgivings', year: 1998 },
-    { id: 'tt0583613', name: 'Friends - The One with the Holiday Armadillo', year: 2000 },
-    { id: 'tt0583518', name: 'Friends - The One with Christmas in Tulsa', year: 2002 },
-
-    // The Office (US)
-    { id: 'tt0664513', name: 'The Office - Christmas Party', year: 2005 },
-    { id: 'tt0908674', name: 'The Office - A Benihana Christmas', year: 2006 },
-    { id: 'tt1548747', name: 'The Office - Secret Santa', year: 2009 },
-    { id: 'tt1752584', name: 'The Office - Classy Christmas', year: 2010 },
-    { id: 'tt2514850', name: 'The Office - Dwight Christmas', year: 2012 },
-
-    // Seinfeld
-    { id: 'tt0697752', name: 'Seinfeld - The Pick', year: 1992 },
-    { id: 'tt0697790', name: 'Seinfeld - The Strike (Festivus)', year: 1997 },
-
-    // How I Met Your Mother
-    { id: 'tt0904645', name: 'How I Met Your Mother - How Lily Stole Christmas', year: 2006 },
-    { id: 'tt1256172', name: 'How I Met Your Mother - Little Minnesota', year: 2008 },
-    { id: 'tt2121966', name: 'How I Met Your Mother - Symphony of Illumination', year: 2011 },
-
-    // Modern Family
-    { id: 'tt1536241', name: 'Modern Family - Undeck the Halls', year: 2009 },
-    { id: 'tt2096098', name: 'Modern Family - Express Christmas', year: 2011 },
-    { id: 'tt3335562', name: 'Modern Family - The Old Man & the Tree', year: 2013 },
-
-    // Parks and Recreation
-    { id: 'tt1545370', name: 'Parks and Recreation - Christmas Scandal', year: 2009 },
-    { id: 'tt2466936', name: 'Parks and Recreation - Ron and Diane', year: 2012 },
-    { id: 'tt2113422', name: 'Parks and Recreation - Citizen Knope', year: 2011 },
-
-    // Community
-    { id: 'tt1559103', name: 'Community - Comparative Religion', year: 2009 },
-    { id: 'tt1640854', name: "Community - Abed's Uncontrollable Christmas", year: 2010 },
-    { id: 'tt2105238', name: 'Community - Regional Holiday Music', year: 2011 },
-
-    // Family Guy
-    { id: 'tt0576913', name: "Family Guy - A Very Special Family Guy Freakin' Christmas", year: 2001 },
-    { id: 'tt1710689', name: 'Family Guy - Road to the North Pole', year: 2010 },
-    { id: 'tt2443942', name: 'Family Guy - Jesus, Mary and Joseph!', year: 2012 },
-    { id: 'tt6019446', name: 'Family Guy - How the Griffin Stole Christmas', year: 2016 },
-
-    // American Dad!
-    { id: 'tt1555452', name: "American Dad! - Rapture's Delight", year: 2009 },
-
-    // King of the Hill
-    { id: 'tt0620291', name: 'King of the Hill - Pretty, Pretty Dresses', year: 1998 },
-
-    // Bob's Burgers
-    { id: 'tt2531554', name: "Bob's Burgers - Bob Rest Ye Merry Gentle-Mannequins", year: 2012 },
-    { id: 'tt7635808', name: "Bob's Burgers - The Bleakening", year: 2017 },
-
-    // It's Always Sunny in Philadelphia
-    { id: 'tt1478620', name: "It's Always Sunny in Philadelphia - A Very Sunny Christmas", year: 2009 },
-
-    // 30 Rock
-    { id: 'tt1001594', name: '30 Rock - Ludachristmas', year: 2007 },
-
-    // The Office (UK)
-    { id: 'tt0664502', name: 'The Office (UK) - Christmas Special: Part 1', year: 2003 },
-    { id: 'tt0664503', name: 'The Office (UK) - Christmas Special: Part 2', year: 2003 },
-
-    // M*A*S*H
-    { id: 'tt0638290', name: 'M*A*S*H - Dear Sis', year: 1978 },
-
-    // The West Wing
-    { id: 'tt0745635', name: 'The West Wing - In Excelsis Deo', year: 1999 },
-
-    // Buffy the Vampire Slayer
-    { id: 'tt0533387', name: 'Buffy the Vampire Slayer - Amends', year: 1998 },
-
-    // Scrubs
-    { id: 'tt0696619', name: 'Scrubs - My Own Personal Jesus', year: 2001 },
-
-    // Doctor Who
-    { id: 'tt1672218', name: 'Doctor Who - A Christmas Carol', year: 2010 },
-
-    // The O.C.
-    { id: 'tt0663865', name: 'The O.C. - The Best Chrismukkah Ever', year: 2003 },
-
-    // New Girl
-    { id: 'tt2125218', name: 'New Girl - The 23rd', year: 2011 },
-
-    // Rugrats
-    { id: 'tt1151694', name: 'Rugrats - The Santa Experience', year: 1992 },
-
-    // Hey Arnold!
-    { id: 'tt0600738', name: "Hey Arnold! - Arnold's Christmas", year: 1996 },
-
-    // SpongeBob SquarePants
-    { id: 'tt0707305', name: 'SpongeBob SquarePants - Christmas Who?', year: 2000 },
-
-    // The Big Bang Theory
-    { id: 'tt1256021', name: 'The Big Bang Theory - The Bath Item Gift Hypothesis', year: 2008 },
-    { id: 'tt2559784', name: 'The Big Bang Theory - The Santa Simulation', year: 2012 },
-
-    // Brooklyn Nine-Nine
-    { id: 'tt3277264', name: 'Brooklyn Nine-Nine - Christmas', year: 2013 },
-    { id: 'tt4371314', name: 'Brooklyn Nine-Nine - Yippie Kayak', year: 2015 },
-
-    // Other classics
-    { id: 'tt0582452', name: 'Frasier - Merry Christmas, Mrs. Moskowitz', year: 1998 },
-    { id: 'tt0582453', name: 'Frasier - Miracle on Third or Fourth Street', year: 1993 },
-    { id: 'tt0751138', name: 'The X-Files - How the Ghosts Stole Christmas', year: 1998 },
-    { id: 'tt0642303', name: "Married... with Children - It's a Bundyful Life (Part 1)", year: 1989 },
-    { id: 'tt0642304', name: "Married... with Children - It's a Bundyful Life (Part 2)", year: 1989 }
-];
-
 function toMetas(list) {
     const seen = new Set();
     return list
@@ -360,7 +480,7 @@ function toMetas(list) {
 }
 
 // Catalog Handler
-builder.defineCatalogHandler(({ type, id }) => {
+builder.defineCatalogHandler(({ type, id, extra }) => {
     if (type !== 'movie') {
         return Promise.resolve({ metas: [] });
     }
@@ -372,6 +492,24 @@ builder.defineCatalogHandler(({ type, id }) => {
         return Promise.resolve({ metas: toMetas(christmasSpecials) });
     }
     if (id === 'holiday-episodes') {
+        // Optional genre filter = show name
+        const show = extra && extra.genre;
+        if (show) {
+            const group = holidayShows.find(s => s.show === show);
+            const metas = group
+                ? group.episodes
+                    .slice()
+                    .sort((a, b) => a.year - b.year)
+                    .map(e => ({
+                        id: e.id,
+                        type: 'movie',
+                        name: `${group.show} - ${e.name}`,
+                        poster: `https://images.metahub.space/poster/medium/${e.id}/img`,
+                        releaseInfo: String(e.year || '')
+                    }))
+                : [];
+            return Promise.resolve({ metas });
+        }
         return Promise.resolve({ metas: toMetas(holidayEpisodes) });
     }
 
