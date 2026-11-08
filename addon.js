@@ -306,7 +306,7 @@ const holidayEpisodes = holidayShows
 
 const builder = new addonBuilder({
     id: 'org.christmas.catalog',
-    version: '2.11.0',
+    version: '2.12.0',
     name: 'Christmas Movies & Specials',
     description: 'Christmas Movies, Classic Specials, and Holiday Episodes',
     logo: 'https://christmas-addon.pplx.app/santa-hat.png',
@@ -326,6 +326,11 @@ const builder = new addonBuilder({
             type: 'movie',
             id: 'christmas-specials',
             name: 'Christmas Specials'
+        },
+        {
+            type: 'movie',
+            id: 'rankin-bass',
+            name: 'Rankin/Bass Classics'
         },
         {
             type: 'movie',
@@ -495,38 +500,20 @@ const christmasMovies = [
 // ====================== CHRISTMAS SPECIALS ======================
 const christmasSpecials = [
     { id: 'tt0123179', name: "Mister Magoo's Christmas Carol", year: 1962 },
-    { id: 'tt0058536', name: "Rudolph the Red-Nosed Reindeer", year: 1964 },
     { id: 'tt0059026', name: "A Charlie Brown Christmas", year: 1965 },
     { id: 'tt0060345', name: "How the Grinch Stole Christmas!", year: 1966 },
-    { id: 'tt0387954', name: "The Cricket on the Hearth", year: 1967 },
-    { id: 'tt0063230', name: "The Little Drummer Boy", year: 1968 },
-    { id: 'tt0064349', name: "Frosty the Snowman", year: 1969 },
-    { id: 'tt0066327', name: "Santa Claus Is Comin' to Town", year: 1970 },
     { id: 'tt0068373', name: "A Christmas Carol (1971)", year: 1971 },
     { id: 'tt1587526', name: "Festival of Family Classics: A Christmas Tree", year: 1972 },
     { id: 'tt0297017', name: "The Bear Who Slept Through Christmas", year: 1973 },
-    { id: 'tt0208654', name: "'Twas the Night Before Christmas", year: 1974 },
-    { id: 'tt0072424', name: "The Year Without a Santa Claus", year: 1974 },
-    { id: 'tt0073751', name: "The First Christmas: The Story of the First Christmas Snow", year: 1975 },
-    { id: 'tt0134661', name: "Frosty's Winter Wonderland", year: 1976 },
-    { id: 'tt0073640', name: "Rudolph's Shiny New Year", year: 1976 },
-    { id: 'tt0074805', name: "The Little Drummer Boy, Book II", year: 1976 },
     { id: 'tt0182015', name: "A Cosmic Christmas", year: 1977 },
     { id: 'tt0075988', name: "Emmet Otter's Jug-Band Christmas", year: 1977 },
-    { id: 'tt0076448', name: "Nestor, the Long-Eared Christmas Donkey", year: 1977 },
     { id: 'tt0193163', name: "A Flintstone Christmas", year: 1977 },
     { id: 'tt0331217', name: "Christmas Eve on Sesame Street", year: 1978 },
     { id: 'tt0078281', name: "The Small One", year: 1978 },
-    { id: 'tt0227562', name: "The Stingiest Man in Town", year: 1978 },
-    { id: 'tt0079357', name: "Jack Frost", year: 1979 },
-    { id: 'tt0079828', name: "Rudolph and Frosty's Christmas in July", year: 1979 },
-    { id: 'tt0081340', name: "Pinocchio's Christmas", year: 1980 },
     { id: 'tt1146433', name: "A Chipmunk Christmas", year: 1981 },
-    { id: 'tt0223634', name: "The Leprechauns' Christmas Gold", year: 1981 },
     { id: 'tt0084701', name: "The Snowman", year: 1982 },
     { id: 'tt0085936', name: "Mickey's Christmas Carol", year: 1983 },
     { id: 'tt0276016', name: "He-Man and She-Ra: A Christmas Special", year: 1985 },
-    { id: 'tt0089488', name: "The Life and Adventures of Santa Claus", year: 1985 },
     { id: 'tt0099263', name: "Jim Henson's The Christmas Toy", year: 1986 },
     { id: 'tt0302596', name: "A Garfield Christmas Special", year: 1987 },
     { id: 'tt0251282', name: "A Muppet Family Christmas", year: 1987 },
@@ -564,7 +551,30 @@ const christmasSpecials = [
     { id: 'tt3473654', name: "Toy Story That Time Forgot", year: 2014 },
     { id: 'tt4537842', name: "A Very Murray Christmas", year: 2015 },
     { id: 'tt5452780', name: "Olaf's Frozen Adventure", year: 2017 },
-    { id: 'tt33427273', name: "A Nonsense Christmas with Sabrina Carpenter", year: 2024 },
+    { id: 'tt33427273', name: "A Nonsense Christmas with Sabrina Carpenter", year: 2024 }
+];
+
+// ====================== RANKIN/BASS CLASSICS ======================
+// The official 18 Rankin/Bass holiday specials (Rudolph, Frosty, Santa Claus Is Comin' to Town, etc.)
+const rankinBassSpecials = [
+    { id: 'tt0058536', name: "Rudolph the Red-Nosed Reindeer", year: 1964 },
+    { id: 'tt0387954', name: "The Cricket on the Hearth", year: 1967 },
+    { id: 'tt0063230', name: "The Little Drummer Boy", year: 1968 },
+    { id: 'tt0064349', name: "Frosty the Snowman", year: 1969 },
+    { id: 'tt0066327', name: "Santa Claus Is Comin' to Town", year: 1970 },
+    { id: 'tt0208654', name: "'Twas the Night Before Christmas", year: 1974 },
+    { id: 'tt0072424', name: "The Year Without a Santa Claus", year: 1974 },
+    { id: 'tt0073751', name: "The First Christmas: The Story of the First Christmas Snow", year: 1975 },
+    { id: 'tt0134661', name: "Frosty's Winter Wonderland", year: 1976 },
+    { id: 'tt0073640', name: "Rudolph's Shiny New Year", year: 1976 },
+    { id: 'tt0074805', name: "The Little Drummer Boy, Book II", year: 1976 },
+    { id: 'tt0076448', name: "Nestor, the Long-Eared Christmas Donkey", year: 1977 },
+    { id: 'tt0227562', name: "The Stingiest Man in Town", year: 1978 },
+    { id: 'tt0079357', name: "Jack Frost", year: 1979 },
+    { id: 'tt0079828', name: "Rudolph and Frosty's Christmas in July", year: 1979 },
+    { id: 'tt0081340', name: "Pinocchio's Christmas", year: 1980 },
+    { id: 'tt0223634', name: "The Leprechauns' Christmas Gold", year: 1981 },
+    { id: 'tt0089488', name: "The Life and Adventures of Santa Claus", year: 1985 },
 ];
 
 function toMetas(list) {
@@ -595,6 +605,9 @@ builder.defineCatalogHandler(({ type, id, extra }) => {
     }
     if (id === 'christmas-specials') {
         return Promise.resolve({ metas: toMetas(christmasSpecials) });
+    }
+    if (id === 'rankin-bass') {
+        return Promise.resolve({ metas: toMetas(rankinBassSpecials) });
     }
     if (id === 'holiday-episodes') {
         // Optional genre filter = show name
@@ -630,6 +643,7 @@ builder.defineMetaHandler(({ type, id }) => {
     const allTitles = [
         ...christmasMovies,
         ...christmasSpecials,
+        ...rankinBassSpecials,
         ...holidayEpisodes
     ];
 
