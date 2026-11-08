@@ -18,7 +18,8 @@ const holidayShows = [
             { id: 'tt0762498', name: "Skinner's Sense of Snow", year: 2000 },
             { id: 'tt2930952', name: 'White Christmas Blues', year: 2013 },
             { id: 'tt4130168', name: "I Won't Be Home for Christmas", year: 2014 },
-            { id: 'tt8730968', name: "'Tis the 30th Season", year: 2018 }
+            { id: 'tt8730968', name: "'Tis the 30th Season", year: 2018 },
+            { id: 'tt13394880', name: 'A Springfield Summer Christmas for Christmas', year: 2020 }
         ]
     },
     {
@@ -113,7 +114,10 @@ const holidayShows = [
             { id: 'tt1710689', name: 'Road to the North Pole', year: 2010 },
             { id: 'tt2443942', name: 'Jesus, Mary and Joseph!', year: 2012 },
             { id: 'tt6019446', name: 'How the Griffin Stole Christmas', year: 2016 },
-            { id: 'tt3358430', name: 'Christmas Guy', year: 2013 }
+            { id: 'tt3358430', name: 'Christmas Guy', year: 2013 },
+            { id: 'tt7480026', name: "Don't Be a Dickens At Christmas", year: 2017 },
+            { id: 'tt11312594', name: 'Christmas Is Coming', year: 2019 },
+            { id: 'tt16091638', name: 'Christmas Crime', year: 2021 }
         ]
     },
     {
@@ -121,7 +125,11 @@ const holidayShows = [
         episodes: [
             { id: 'tt1555452', name: "Rapture's Delight", year: 2009 },
             { id: 'tt0920930', name: 'The Best Christmas Story Never Told', year: 2006 },
-            { id: 'tt2543690', name: 'Minstrel Krampus', year: 2013 }
+            { id: 'tt2543690', name: 'Minstrel Krampus', year: 2013 },
+            { id: 'tt1156640', name: 'The Most Adequate Christmas Ever', year: 2007 },
+            { id: 'tt4132636', name: 'Dreaming of a White Porsche Christmas', year: 2014 },
+            { id: 'tt7786664', name: 'Santa, Schmanta', year: 2017 },
+            { id: 'tt34821192', name: 'Nasty Christmas', year: 2024 }
         ]
     },
     {
@@ -136,7 +144,12 @@ const holidayShows = [
         episodes: [
             { id: 'tt2531554', name: 'God Rest Ye Merry Gentle-Mannequins', year: 2012 },
             { id: 'tt7635808', name: 'The Bleakening', year: 2017 },
-            { id: 'tt3379840', name: 'Christmas in the Car', year: 2013 }
+            { id: 'tt3379840', name: 'Christmas in the Car', year: 2013 },
+            { id: 'tt11282118', name: 'Have Yourself a Maily Linda Christmas', year: 2019 },
+            { id: 'tt16091568', name: "Gene's Christmas Break", year: 2021 },
+            { id: 'tt23708680', name: 'The Plight Before Christmas', year: 2022 },
+            { id: 'tt29804427', name: 'The Nightmare 2 Days Before Christmas', year: 2023 },
+            { id: 'tt34791042', name: 'Dog Christmas Day After Afternoon', year: 2024 }
         ]
     },
     {
@@ -229,7 +242,8 @@ const holidayShows = [
     {
         show: 'Rugrats',
         episodes: [
-            { id: 'tt1151694', name: 'The Santa Experience', year: 1992 }
+            { id: 'tt1151694', name: 'The Santa Experience', year: 1992 },
+            { id: 'tt1315163', name: 'Angelica Orders Out/Let It Snow', year: 1997 }
         ]
     },
     {
@@ -242,7 +256,9 @@ const holidayShows = [
         show: 'SpongeBob SquarePants',
         episodes: [
             { id: 'tt0707305', name: 'Christmas Who?', year: 2000 },
-            { id: 'tt14514044', name: "SpongeBob's Road to Christmas", year: 2021 }
+            { id: 'tt14514044', name: "SpongeBob's Road to Christmas", year: 2021 },
+            { id: 'tt2476918', name: "It's a SpongeBob Christmas!", year: 2012 },
+            { id: 'tt31227920', name: "Sandy's Country Christmas", year: 2024 }
         ]
     },
     {
@@ -256,7 +272,8 @@ const holidayShows = [
         show: 'The Big Bang Theory',
         episodes: [
             { id: 'tt1256021', name: 'The Bath Item Gift Hypothesis', year: 2008 },
-            { id: 'tt2559784', name: 'The Santa Simulation', year: 2012 }
+            { id: 'tt2559784', name: 'The Santa Simulation', year: 2012 },
+            { id: 'tt6320950', name: 'The Holiday Summation', year: 2017 }
         ]
     },
     {
@@ -289,7 +306,7 @@ const holidayEpisodes = holidayShows
 
 const builder = new addonBuilder({
     id: 'org.christmas.catalog',
-    version: '2.10.0',
+    version: '2.11.0',
     name: 'Christmas Movies & Specials',
     description: 'Christmas Movies, Classic Specials, and Holiday Episodes',
     logo: 'https://christmas-addon.pplx.app/santa-hat.png',
